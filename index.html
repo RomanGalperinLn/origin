@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Origin</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/src/ui/style.css" />
+  </head>
+  <body>
+    <header class="readouts">
+      <div class="readout-main">
+        <div id="readout-ago" class="readout-ago">13.8 billion years ago</div>
+        <div class="readout-sub dim">age of the universe <span id="readout-age">0</span></div>
+      </div>
+      <div class="readout-chapter">
+        <div id="chapter-title" class="chapter-title"></div>
+        <span id="chapter-badge" class="badge"></span>
+        <div id="chapter-counters" class="counters"></div>
+      </div>
+      <div class="readout-calendar">
+        <div id="calendar-label" class="readout-sub dim">Cosmic Calendar</div>
+        <div id="readout-calendar" class="readout-cal">Jan 1, 00:00:00</div>
+      </div>
+      <button id="mode-pill" class="mode-pill" title="CONTROLLED / RELEASED (key: C). Flipping restarts the chapter in the other mode.">CONTROLLED</button>
+      <button id="btn-about" class="about-btn">About</button>
+    </header>
+    <div id="mode-label" class="mode-label"></div>
+
+    <div id="opening" class="opening" hidden>
+      <div class="opening-card">
+        <h1>ORIGIN</h1>
+        <p class="opening-q">Where do we come from? Where are we going?</p>
+        <div class="mode-switch" role="radiogroup" aria-label="Control">
+          <button id="opening-controlled" role="radio" class="on">CONTROLLED</button>
+          <button id="opening-released" role="radio">RELEASED</button>
+        </div>
+        <p class="opening-help"><b>CONTROLLED:</b> we arrange everything neatly. No randomness.<br />
+          <b>RELEASED:</b> we let go. Chaos is allowed in.</p>
+        <p id="opening-line" class="opening-line"></p>
+        <button id="opening-begin" class="opening-begin">▶ Begin</button>
+      </div>
+    </div>
+
+    <main id="view"></main>
+
+    <section class="timeline">
+      <div class="row">
+        <button id="master-start" title="Back to the Big Bang">◀◀ Start</button>
+        <button id="master-play" title="Play / pause (space)">▶ Play</button>
+        <select id="master-speed" title="Playback speed">
+          <option value="slow">slow</option>
+          <option value="normal" selected>normal</option>
+          <option value="fast">fast</option>
+        </select>
+        <div class="master">
+          <div id="master-labels" class="master-labels"></div>
+          <div id="master-track" class="master-track" title="Drag to travel through time (← → keys nudge)">
+            <div id="master-bands" class="master-bands"></div>
+            <div id="master-fill" class="master-fill"></div>
+            <div id="master-ticks" class="master-ticks"></div>
+            <div id="master-thumb" class="master-thumb"></div>
+          </div>
+        </div>
+        <button id="master-today" title="Jump to today">Today ▶▶</button>
+      </div>
+    </section>
+
+    <section class="bottom">
+      <div id="chapter-charts" class="chapter-charts"></div>
+      <div class="winston">
+        <div class="winston-line"><b>Winston:</b> <span id="winston-text" class="faded"></span></div>
+        <div class="row">
+          <button id="winston-mic" title="Ask a question out loud (Chrome)">🎤 Ask Winston</button>
+          <form id="winston-ask-form" class="ask-form">
+            <input id="winston-question" type="text" placeholder="…or type a question" autocomplete="off" />
+            <button type="submit">Ask</button>
+          </form>
+          <label class="check"><input type="checkbox" id="winston-on" checked /> on</label>
+          <span class="dim status" id="winston-status"></span>
+        </div>
+      </div>
+    </section>
+
+    <div id="about-overlay" class="overlay" hidden>
+      <div class="overlay-card about">
+        <div class="overlay-head"><b>About Origin</b><span class="spacer"></span><button id="about-close" title="Close (Esc)">✕</button></div>
+        <p>
+          In Dan Brown’s novel <i>Origin</i>, Edmond Kirsch answers “where do we come from?” with a simulation that
+          fast-forwards nature. This is an honest version: one slider from the Big Bang to today, following matter as it
+          organises itself at ever smaller scales. The idea connecting every chapter: <b>energy flows, and matter
+          organises into structure over time.</b>
+        </p>
+        <p class="honest">
+          No computer can simulate particles evolving into people, and we don’t pretend to. Every chapter carries a badge:
+          <span class="badge kind-SIMULATED">SIMULATED</span> real physics or a real model runs live;
+          <span class="badge kind-MODELLED">MODELLED</span> a simplified model tuned to look right;
+          <span class="badge kind-RECONSTRUCTED">RECONSTRUCTED</span> a visual driven by scientific dates, not by
+          simulation. Where we can simulate, we simulate. Where nobody can, we show the science honestly.
+        </p>
+        <p><b>CONTROLLED / RELEASED.</b> CONTROLLED mode removes randomness and starts from a neat, designed layout. It
+          shows that in our models, structure needs both randomness and a flow of energy. It is a thought experiment, not a
+          claim about what a real universe could be. Details: chapter 2 starts from a perfect grid with no ripples (no stars
+          form); chapter 6 starts from a neat lattice already settled into its rest state, with no noise and the energy on
+          (it only vibrates in place); chapter 7's creatures are identical and never mutate (no new species). Chapters 3, 4,
+          5 and 8 are cards, because nothing formed for them to build on. Tested honestly: a neat solar-system disk run on its
+          own still collides into planets (its orbits are packed tightly and the bodies pull on each other), which is why
+          chapter 4 follows the story's logic (no stars, no Sun) instead.</p>
+        <ol class="about-chapters">
+          <li><b>The Hot Beginning</b> (MODELLED): an opaque glowing fog whose colour follows the textbook
+            temperature (T ∝ t<sup>−1/2</sup>), clearing at recombination to reveal the first light. The clearing is drawn
+            starting earlier than it really did (from about 57,000 years, versus about 250,000 in reality) so it is visible on
+            the log clock. The CMB map is a random field coloured by seed density (denser = slightly colder), not the real
+            Planck map. <i>The particle soup arrives in phase 6.</i></li>
+          <li><b>The Cosmic Web and First Stars</b> (SIMULATED): real gravity (2D particle-mesh, 16,384 particles) in an
+            expanding universe, started from the very ripples shown as the CMB. 2D, so qualitative. The ripple amplitude
+            was tuned so the first star ignites within the 100–200 million year estimate. With no ripples, nothing forms.</li>
+          <li><b>A Galaxy Takes Shape</b> (MODELLED): a picture built from equations, not a gravity simulation. A puffy
+            cloud settles into a thin disk; a flat rotation curve (230 km/s) makes inner stars lap outer ones; the spiral arms
+            are a density wave (two arms, 12° pitch) that stars drive through like a traffic jam, lighting up gas as young blue
+            stars; a smaller galaxy (Gaia-Enceladus) falls in. Rotation is drawn about 13× slower than real; dates of the
+            merger and the thin disk (debated) come from the facts table. The real Milky Way also has a bar and minor arms.</li>
+          <li><b>Birth of the Solar System</b> (SIMULATED): real 2D gravity and collisions between 800 planetesimals that
+            merge into a few planets, one of which becomes Earth. Time is compressed (about 600 orbits for 10–100 million
+            years), collision radii are 200× real and the bodies pull on each other 200× harder than real. The gas disk's
+            glow is scripted, and the Moon-forming impact is an illustration (RECONSTRUCTED).</li>
+          <li><b>Young Earth</b> (RECONSTRUCTED): a 3D globe whose surface (lava, oceans, haze, impacts) follows the
+            dated events, not a climate or geology model. Continents are procedural, and their slow re-shaping is a
+            visual stand-in for drift, not plate tectonics.</li>
+          <li><b>The Origin of Life</b> (SIMULATED): the live driven-particle simulation. Driven matter organises faster and
+            further than the undriven control (order: driven wins in 93% of 1,200 sweep runs). This illustrates Jeremy
+            England’s debated hypothesis; it does not create life. The particles, bonds and cluster outlines are drawn from
+            the simulation (same colour = same composition and shape; the control actually has more look-alikes, which is why
+            there is no "repeated structures" chart). Decoration only, not simulated: the glow and trails, the travelling light
+            bands (a picture of the field's strength and direction), the warm vent glow, bubbles, dust, the microscope zooms
+            and the optional hum.</li>
+          <li><b>Evolution: from cells to humans</b> (RECONSTRUCTED, with a SIMULATED toy model). First a toy model of
+            natural selection (genes, mutation, competition; real dates of oxygen rises, Snowball Earth, the Cambrian and
+            two mass extinctions drive its environment; a no-oxygen control stays single-celled). Then our own lineage
+            morphs through 24 key stages, from first cells to Homo sapiens. The key stages come from the fossil record and
+            real groups (dates and sources in <code>src/data/sources.md</code>); the in-between frames are illustrations,
+            and the drawings are our own simple schematics, all shown at the same size with a real-size scale bar. Living
+            relatives branch off the family tree as cousins: monkeys and apes are not our ancestors, we share ancestors with
+            them. Brain sizes are fossil measurements. The toy model's numbers were tuned so its mechanism shows clearly.</li>
+          <li><b>Humans</b> (RECONSTRUCTED): dated milestones, published world-population estimates (Our World in
+            Data, UN) and city lights on the globe.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div id="reverse-overlay" class="overlay" hidden>
+      <div class="overlay-card">
+        <div class="overlay-head">
+          <b>Reverse time</b>
+          <span class="dim" id="reverse-status"></span>
+          <span class="spacer"></span>
+          <label class="check"><input type="checkbox" id="reverse-frictionless" /> frictionless mode</label>
+          <button id="reverse-replay">Replay</button>
+          <button id="reverse-close" title="Close (Esc)">✕</button>
+        </div>
+        <div class="overlay-body">
+          <canvas id="canvas-reverse"></canvas>
+          <div class="overlay-side">
+            <p id="reverse-text"></p>
+            <div class="chart" id="reverse-dist"></div>
+            <div class="chart" id="reverse-entropy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/ui/main.ts"></script>
+  </body>
+</html>

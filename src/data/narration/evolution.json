@@ -1,0 +1,101 @@
+{
+  "_about": "Chapter 7 narration, in our own words. Each line plays when the slider passes its trigger moving forward: 'chapter' = start of chapter 7, 'lineage' = start of 7b, 'end' = just before the chapter ends, otherwise a stage id from lineage.json. Lines are short (the whole chapter plays in about 70 seconds, a stage every 2-3 seconds). Templates are filled from the data files so no date or number is typed here: {when:STAGE} = 'about N years ago' (lineage.json), {split:COUSIN-ID} = when that cousin's line split from ours (lineage.json), {event:ID} = a date from events.json, {cc:ID} = a brain size from brainSize.json. Never say humans descended from monkeys: we share ancestors with them.",
+  "lines": [
+    {
+      "id": "theme-start",
+      "at": "chapter",
+      "text": "Life began as simple, disordered chemistry. Selection builds order from it, step by step."
+    },
+    {
+      "id": "toy-model",
+      "at": "chapter",
+      "delay": 5,
+      "text": "First a toy model of selection, not real species. Later, real dates set its oxygen and ice."
+    },
+    {
+      "id": "first-cells",
+      "at": "lineage",
+      "text": "Our own line starts with single cells, {when:first-cells}."
+    },
+    {
+      "id": "nucleus",
+      "at": "eukaryote",
+      "text": "Cells gain a nucleus, {when:eukaryote}."
+    },
+    {
+      "id": "first-animals",
+      "at": "sponge-like",
+      "text": "The first animals: small and sponge-like, {when:sponge-like}."
+    },
+    {
+      "id": "backbone",
+      "at": "jawless-fish",
+      "text": "A backbone: fish without jaws, {when:jawless-fish}."
+    },
+    {
+      "id": "jaws",
+      "at": "jawed-fish",
+      "text": "Jaws. Sharks and rays branched off as cousins, not ancestors."
+    },
+    {
+      "id": "leaving-water",
+      "at": "tetrapod",
+      "text": "Fins become legs: the first four-legged animals, {when:tetrapod}."
+    },
+    {
+      "id": "eggs-on-land",
+      "at": "synapsid",
+      "text": "Eggs that carry their own water: our ancestors can breed on land."
+    },
+    {
+      "id": "first-mammals",
+      "at": "early-mammal",
+      "text": "The first mammals: tiny insect hunters, {when:early-mammal}."
+    },
+    {
+      "id": "after-dinosaurs",
+      "at": "early-primate",
+      "text": "The dinosaurs' end, {event:end-cretaceous}, opens the way for mammals and primates."
+    },
+    {
+      "id": "monkeys",
+      "at": "anthropoid",
+      "text": "Monkeys and apes are our cousins, not our ancestors: we share ancestors with them."
+    },
+    {
+      "id": "apes",
+      "at": "early-ape",
+      "text": "Apes lose their tails. Gibbons, orangutans, then gorillas branch off."
+    },
+    {
+      "id": "split-chimps",
+      "at": "chimp-lca",
+      "text": "Our line and the chimpanzees' split, {when:chimp-lca}."
+    },
+    {
+      "id": "upright",
+      "at": "afarensis",
+      "text": "Walking upright: Lucy's kind, with a brain of about {cc:afarensis} cubic centimetres."
+    },
+    {
+      "id": "bigger-brains",
+      "at": "habilis",
+      "text": "Brains grow: Homo habilis, about {cc:habilis} cubic centimetres."
+    },
+    {
+      "id": "leaving-africa",
+      "at": "erectus",
+      "text": "Homo erectus, about {cc:erectus} cubic centimetres, spreads from Africa into Asia."
+    },
+    {
+      "id": "neanderthals",
+      "at": "heidelbergensis",
+      "text": "Neanderthals and Denisovans branch off: relatives, not ancestors."
+    },
+    {
+      "id": "theme-end",
+      "at": "end",
+      "text": "From a single cell to a human brain, the most complex structure we know."
+    }
+  ]
+}

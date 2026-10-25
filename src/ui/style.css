@@ -1,0 +1,1465 @@
+:root {
+  --bg: #0b0d12;
+  --panel: #12151d;
+  --line: #232837;
+  --text: #e6e8ee;
+  --dim: #8a90a2;
+  --driven: #ffb547;
+  --control: #8a90a2;
+  --sim: #3fbf7f;
+  --mod: #5b9cf0;
+  --rec: #e0a33a;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+button,
+select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--dim);
+}
+
+.status {
+  font-variant-numeric: tabular-nums;
+}
+
+.dim {
+  color: var(--dim);
+}
+
+.check {
+  color: var(--dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* ---- Readouts header --------------------------------------------------- */
+
+.readouts {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.readout-ago {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.readout-sub {
+  font-size: 12px;
+}
+
+.readout-chapter {
+  text-align: center;
+}
+
+.chapter-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.readout-calendar {
+  text-align: right;
+}
+
+.readout-cal {
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.kind-SIMULATED {
+  color: var(--sim);
+}
+
+.kind-MODELLED {
+  color: var(--mod);
+}
+
+.kind-RECONSTRUCTED {
+  color: var(--rec);
+}
+
+/* ---- Main view ---------------------------------------------------------- */
+
+#view {
+  position: relative;
+  min-height: 0;
+  padding: 8px 16px 0;
+  background: radial-gradient(ellipse at 50% 40%, color-mix(in srgb, var(--chapter-color, #333) 18%, transparent), transparent 70%);
+}
+
+.placeholder {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-card {
+  max-width: 720px;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--chapter-color) 60%, var(--line));
+  border-radius: 10px;
+  padding: 18px 24px;
+  background: color-mix(in srgb, var(--chapter-color) 10%, var(--panel));
+  max-height: 100%;
+  overflow: auto;
+}
+
+.placeholder-kicker {
+  color: var(--chapter-color);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+}
+
+.placeholder-card h2 {
+  margin: 2px 0 6px;
+  font-size: 28px;
+}
+
+.placeholder-events {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+.placeholder-events li {
+  margin: 2px 0;
+}
+
+.placeholder-progress {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.placeholder-progress > div {
+  height: 100%;
+  width: 0;
+  background: var(--chapter-color);
+}
+
+.placeholder-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+}
+
+/* Chapter 6 */
+
+.ch6 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ch6-panels {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.panel {
+  margin: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel figcaption {
+  font-size: 13px;
+  color: var(--dim);
+  margin: 0 2px 4px;
+}
+
+.panel canvas {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.driven-label {
+  color: var(--driven);
+}
+
+.control-label {
+  color: var(--text);
+}
+
+.ch6-reverse {
+  border-color: #5a4a2a;
+}
+
+/* Globe chapters */
+
+.globe-chapter {
+  height: 100%;
+  display: grid;
+  gap: 12px;
+  min-height: 0;
+}
+
+.globe-chapter.layout-earth,
+.globe-chapter.layout-humans {
+  grid-template-columns: minmax(0, 1fr) 320px;
+}
+
+.globe-chapter.layout-evolution {
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+}
+
+/* Chapter 7: 7a = toy model full size; 7b (.phase-b) = lineage stage, toy model in a corner. */
+.evo-main {
+  position: relative;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #05070c;
+}
+
+.lineage-host {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.evo-main.phase-b .lineage-host {
+  opacity: 1;
+}
+
+.evo-main .evo-sim {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #05070c;
+  transition: left 0.7s ease, top 0.7s ease, width 0.7s ease, height 0.7s ease;
+}
+
+.evo-main.phase-b .evo-sim {
+  left: 10px;
+  top: calc(100% - 28% - 10px);
+  width: 30%;
+  height: 28%;
+  grid-template-rows: minmax(0, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.evo-main.phase-b .evo-panel {
+  display: none;
+}
+
+.evo-main.phase-b .evo-caption {
+  font-size: 10px;
+  bottom: 4px;
+}
+
+.evo-main.phase-b .evo-badge {
+  top: 4px;
+  left: 4px;
+  font-size: 9px;
+}
+
+.lineage-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.lineage-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.lineage-label {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  right: 50%;
+  text-shadow: 0 1px 4px #000;
+  transition: opacity 0.2s;
+}
+
+.lineage-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.lineage-fact {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.lineage-scale {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-size: 12px;
+  opacity: 0.85;
+  text-shadow: 0 1px 3px #000;
+}
+
+.lineage-note {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  max-width: 36%;
+  text-align: right;
+  font-size: 11px;
+  opacity: 0.75;
+  text-shadow: 0 1px 3px #000;
+}
+
+.evo-tree .sim-tree {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+}
+
+.globe-chapter.phase-b .evo-tree .sim-tree,
+.globe-chapter:not(.phase-b) .evo-tree .family-tree-host {
+  display: none;
+}
+
+.family-tree-host {
+  height: 100%;
+  min-height: 0;
+}
+
+.globe-box {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+}
+
+.globe-host {
+  position: absolute;
+  inset: 0;
+}
+
+.globe-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.globe-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.globe-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-size: 15px;
+  text-shadow: 0 1px 4px #000;
+  pointer-events: none;
+}
+
+.globe-side {
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 0;
+}
+
+.side-title {
+  color: var(--dim);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.side-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-events li {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  border-left: 2px solid var(--line);
+  opacity: 0.45;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.side-events li.passed {
+  opacity: 1;
+  border-left-color: var(--chapter-color, var(--driven));
+}
+
+.side-events li span {
+  font-size: 12px;
+}
+
+.evo-sim {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+  min-height: 0;
+}
+
+.evo-stage {
+  position: relative;
+  min-height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #05070c;
+}
+
+.evo-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.evo-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.evo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  text-align: center;
+  font-size: 14px;
+  text-shadow: 0 1px 4px #000;
+  padding: 0 12px;
+}
+
+.evo-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 4px 16px;
+  font-size: 12px;
+}
+
+.evo-env {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+}
+
+.evo-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.evo-stats div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.evo-panel .small {
+  grid-column: 1 / -1;
+  margin: 0;
+  line-height: 1.4;
+  font-size: 11px;
+}
+
+.evo-right {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 8px;
+  min-height: 0;
+}
+
+.evo-tree {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.tree-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.tree-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  min-height: 0;
+}
+
+.globe-charts {
+  height: 100%;
+  display: flex;
+  gap: 8px;
+  min-height: 0;
+}
+
+.pop-chart {
+  flex: 1.3;
+  position: relative;
+}
+
+.pop-readout {
+  position: absolute;
+  right: 8px;
+  top: 2px;
+  font-size: 12px;
+  color: #ffc04d;
+}
+
+.surface-bars {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  font-size: 11px;
+  gap: 6px;
+}
+
+.bar {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar > div {
+  height: 100%;
+  width: 0;
+  transition: width 0.2s linear;
+}
+
+/* Chapters 1-2: cosmic web */
+
+.web-chapter {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 12px;
+  min-height: 0;
+}
+
+.web-box {
+  position: relative;
+  min-height: 0;
+}
+
+.web-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.web-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-size: 15px;
+  text-shadow: 0 1px 4px #000;
+  pointer-events: none;
+}
+
+.web-side {
+  min-height: 0;
+  overflow: auto;
+  font-size: 13px;
+}
+
+.web-side p {
+  margin: 0 0 8px;
+  line-height: 1.45;
+}
+
+.web-side .small {
+  font-size: 12px;
+}
+
+.web-toggle {
+  margin: 4px 0 8px;
+  color: var(--text);
+}
+
+.web-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.web-stats div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hot-temp {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ffb070;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.charts.mini {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---- Master timeline ---------------------------------------------------- */
+
+.timeline {
+  padding: 6px 16px 4px;
+}
+
+.master {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.master-labels {
+  position: relative;
+  height: 18px;
+}
+
+.band-label {
+  position: absolute;
+  top: 0;
+  height: 18px;
+  padding: 0 3px;
+  border: none;
+  background: none;
+  color: var(--dim);
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.band-label:hover {
+  color: var(--text);
+}
+
+.master-track {
+  position: relative;
+  height: 22px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.master-bands,
+.master-fill,
+.master-ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  height: 8px;
+}
+
+.band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  opacity: 0.45;
+  border-right: 1px solid var(--bg);
+}
+
+.master-fill {
+  right: auto;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px 0 0 4px;
+  pointer-events: none;
+}
+
+.tick {
+  position: absolute;
+  top: -5px;
+  width: 2px;
+  height: 18px;
+  margin-left: -1px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.tick:hover {
+  background: #fff;
+  width: 3px;
+}
+
+.master-thumb {
+  position: absolute;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--driven);
+  border: 2px solid var(--bg);
+  pointer-events: none;
+}
+
+/* ---- Bottom: charts + Winston ------------------------------------------ */
+
+.bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(280px, 1fr);
+  gap: 10px;
+  padding: 4px 16px 10px;
+  height: 170px;
+}
+
+.chapter-charts {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-charts {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+}
+
+.charts {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.chart {
+  height: 100%;
+  min-height: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.chart .u-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--dim);
+  padding-top: 2px;
+}
+
+.here-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.legend {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 3px;
+  vertical-align: middle;
+  margin: 0 2px 0 8px;
+}
+
+.swatch.driven {
+  background: var(--driven);
+}
+
+.swatch.control {
+  background: var(--control);
+}
+
+.winston {
+  padding: 8px 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.winston-line {
+  font-size: 14px;
+  overflow: auto;
+}
+
+.winston-line b {
+  color: var(--driven);
+}
+
+#winston-text {
+  transition: opacity 0.6s;
+}
+
+#winston-text.faded {
+  opacity: 0.35;
+}
+
+.ask-form {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.ask-form input {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 5px 8px;
+  font: inherit;
+}
+
+#winston-mic.listening {
+  border-color: #ff5a5a;
+  color: #ff8080;
+}
+
+/* ---- Overlays ----------------------------------------------------------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 10, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 16px;
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+.overlay-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  width: min(1100px, 100%);
+  max-height: 100%;
+  overflow: auto;
+}
+
+.overlay-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.overlay-body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+}
+
+#canvas-reverse {
+  width: min(60vh, 480px);
+  aspect-ratio: 1 / 1;
+  background: #05060a;
+  border-radius: 4px;
+}
+
+.overlay-side p {
+  margin: 0 0 8px;
+}
+
+.overlay-side .chart {
+  height: 140px;
+  margin-bottom: 8px;
+}
+
+.overlay-side .chart[hidden] {
+  display: none;
+}
+
+.about {
+  max-width: 720px;
+}
+
+.about p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+}
+
+.about .honest {
+  color: var(--dim);
+  border-left: 3px solid var(--driven);
+  padding-left: 10px;
+}
+
+.about-chapters {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.about-chapters li {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+  .charts {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bottom {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .overlay-body {
+    grid-template-columns: 1fr;
+  }
+  #canvas-reverse {
+    width: 100%;
+  }
+}
+
+/* Chapter 7b: family-tree mini-map */
+.family-tree {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.ft-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.ft-line {
+  fill: none;
+  stroke: #3a4354;
+  stroke-width: 1.6;
+}
+
+.ft-branch {
+  cursor: pointer;
+  opacity: 0.35;
+  transition: opacity 0.4s;
+}
+
+.ft-branch.passed {
+  opacity: 1;
+}
+
+.ft-branch.passed .ft-line {
+  stroke: #9fb4d6;
+}
+
+.ft-branch.extinct.passed {
+  opacity: 0.55;
+}
+
+.ft-branch.flash .ft-line {
+  stroke: #ffd36b;
+  stroke-width: 2.6;
+}
+
+.ft-label {
+  fill: var(--text);
+  font-family: system-ui;
+}
+
+.ft-trunk-label {
+  fill: #ffd36b;
+  font: 10px system-ui;
+}
+
+.ft-dot {
+  fill: #ffd36b;
+  stroke: #0b0e14;
+  stroke-width: 1.5;
+}
+
+.ft-toast {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 211, 107, 0.15);
+  color: #ffd36b;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.ft-note {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* Chapter 7b: brain-size chart */
+.brain-chart {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  padding: 4px 8px;
+}
+
+.brain-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.bc-grid {
+  stroke: #1c2130;
+}
+
+.bc-axis {
+  fill: #8a90a2;
+  font: 10px system-ui;
+}
+
+.bc-ref {
+  stroke: #8a90a2;
+  stroke-dasharray: 4 4;
+}
+
+.bc-ref-label {
+  fill: #8a90a2;
+  font: 10px system-ui;
+}
+
+.bc-point {
+  opacity: 0;
+  transition: opacity 0.4s;
+  fill: #ffd36b;
+}
+
+.bc-point.shown {
+  opacity: 1;
+}
+
+.bc-point.side.shown {
+  opacity: 0.45;
+}
+
+.bc-bar {
+  stroke: #ffd36b;
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+.bc-label {
+  font: 10px system-ui;
+  fill: var(--text);
+}
+
+.bc-dot {
+  fill: #fff;
+  stroke: #ffd36b;
+  stroke-width: 2;
+}
+
+.bc-dot-label {
+  fill: #fff;
+  font: 11px system-ui;
+}
+
+.ch6-hum.on {
+  border-color: var(--driven);
+  color: var(--driven);
+}
+
+/* Chapter 7 narration subtitles */
+.narration {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 14px;
+  z-index: 3;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.35;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(5, 8, 14, 0.62);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.narration.shown {
+  opacity: 1;
+}
+
+.evo-main.phase-b .narration {
+  left: calc(30% + 22px);
+  right: 14px;
+  bottom: 34px;
+}
+
+/* Hand-over to chapter 8: the stage fades, the globe comes forward. */
+.globe-chapter.handoff .evo-main > :not(.narration) {
+  opacity: 0.35;
+  transition: opacity 0.6s;
+}
+
+/* The closing line carried over the start of chapter 8. */
+.narration.carry {
+  position: fixed;
+  left: 18%;
+  right: 18%;
+  bottom: 230px;
+}
+
+.globe-chapter.handoff .globe-box {
+  /* Grow toward the stage (left), so the globe and its caption stay on screen. */
+  transform: scale(1.08);
+  transform-origin: 85% 50%;
+  transition: transform 0.6s;
+}
+
+/* CONTROLLED / RELEASED switch */
+.mode-pill {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.mode-pill.controlled {
+  background: #2a3442;
+  color: #b8c7da;
+  border-color: #50637a;
+}
+
+.mode-pill.released {
+  background: #3a2614;
+  color: #ffc98a;
+  border-color: #b06a2a;
+}
+
+.mode-label {
+  position: fixed;
+  right: 14px;
+  bottom: 6px;
+  z-index: 20;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Controlled: the whole UI slightly cold and grey. */
+body.mode-controlled > :not(.opening) {
+  filter: saturate(0.55) brightness(0.96) hue-rotate(8deg);
+}
+
+#view.mode-fade {
+  animation: mode-fade 1s ease;
+}
+
+@keyframes mode-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 40%, #121a2a, #05070c 70%);
+}
+
+.opening-card {
+  text-align: center;
+  max-width: 640px;
+  padding: 24px;
+}
+
+.opening-card h1 {
+  font-size: 64px;
+  letter-spacing: 0.3em;
+  margin: 0 0 6px;
+}
+
+.opening-q {
+  font-size: 20px;
+  opacity: 0.8;
+  margin: 0 0 36px;
+}
+
+.mode-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+  background: #0b0f18;
+}
+
+.mode-switch button {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 14px 30px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+}
+
+#opening-controlled.on {
+  background: #2a3442;
+  color: #d4e0ee;
+}
+
+#opening-released.on {
+  background: #6b3a12;
+  color: #ffd9ac;
+}
+
+.opening-help {
+  margin: 22px 0 8px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.opening-line {
+  min-height: 1.4em;
+  font-size: 18px;
+  color: #ffc98a;
+  margin: 6px 0 18px;
+}
+
+.opening-begin {
+  font-size: 20px;
+  padding: 10px 28px;
+}
+
+.opening[hidden] {
+  display: none;
+}
+
+/* CONTROLLED-mode cards */
+.controlled-card {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+
+.controlled-card.haze {
+  /* Chapter 3: the even, empty haze left by chapter 2's controlled (perfectly smooth) run. */
+  background: radial-gradient(circle at 50% 50%, rgba(120, 110, 170, 0.18), rgba(70, 64, 110, 0.14) 60%, rgba(40, 38, 70, 0.1));
+}
+
+.badge.kind-CONTROLLED {
+  color: #b8c7da;
+  border-color: #50637a;
+}
+
+/* Chapter 7 in CONTROLLED mode: no Earth (hidden globe), no lineage beyond the first cell. */
+.controlled-noearth {
+  position: absolute;
+  margin: 16px;
+  max-width: 80%;
+}
+
+.globe-chapter.controlled .globe-box,
+.globe-chapter.controlled .family-tree-host {
+  visibility: hidden;
+}
+
+.lineage-controlled {
+  position: absolute;
+  left: 50%;
+  top: 22%;
+  transform: translateX(-50%);
+  max-width: 70%;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background: rgba(8, 12, 20, 0.78);
+  border: 1px solid var(--line);
+}
+
+.lineage-controlled h3 {
+  margin: 8px 0 4px;
+}
+
+.badge.kind-ILLUSTRATION {
+  color: #e6d3a3;
+  border-color: #8a7444;
+}
+
+.counters {
+  font-size: 11px;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+  min-height: 1em;
+}
+
+
+
+/* CONTROLLED mode: the "why it doesn't work" explanation in each running chapter */
+.why {
+  border-left: 3px solid #50637a;
+  padding: 6px 10px;
+  margin: 0 0 8px;
+  background: rgba(80, 99, 122, 0.12);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.45;
+}
+
+.ch6-why {
+  font-size: 13px;
+  margin: 0;
+}
+
+.evo-panel .why {
+  grid-column: 1 / -1;
+  font-size: 12px;
+}
+
+.chart-note {
+  position: relative;
+  top: -60%;
+  text-align: center;
+  font-size: 11px;
+  color: var(--dim);
+  padding: 0 12px;
+  pointer-events: none;
+}
+
+.globe-chapter.controlled .evo-right {
+  position: relative;
+}

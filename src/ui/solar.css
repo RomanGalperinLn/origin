@@ -1,0 +1,11 @@
+/* Chapter 4: the RECONSTRUCTED badge sits on top of the Moon-forming impact inset. */
+.solar-impact-badge {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.solar-impact-badge[hidden] {
+  display: none;
+}

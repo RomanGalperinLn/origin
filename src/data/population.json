@@ -1,0 +1,20 @@
+{
+  "_source": "World population, rounded. Our World in Data (based on HYDE 3.2 and UN World Population Prospects 2024); the billion milestones (1927, 1960, 1974, 1987, 1999, 2011, 2022) are UN figures. Ancient values are uncertain by up to a factor of two: estimates for 1 CE range from about 170 to 300 million.",
+  "points": [
+    { "year": -10000, "population": 4e6 },
+    { "year": 1, "population": 1.9e8 },
+    { "year": 1000, "population": 3e8 },
+    { "year": 1500, "population": 4.6e8 },
+    { "year": 1800, "population": 1e9 },
+    { "year": 1900, "population": 1.6e9 },
+    { "year": 1927, "population": 2e9 },
+    { "year": 1950, "population": 2.5e9 },
+    { "year": 1960, "population": 3e9 },
+    { "year": 1974, "population": 4e9 },
+    { "year": 1987, "population": 5e9 },
+    { "year": 1999, "population": 6e9 },
+    { "year": 2011, "population": 7e9 },
+    { "year": 2022, "population": 8e9 },
+    { "year": 2025, "population": 8.2e9 }
+  ]
+}

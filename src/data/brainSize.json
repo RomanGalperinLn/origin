@@ -1,0 +1,14 @@
+{
+  "_about": "Brain size along our line, as cranial (endocranial) capacity in cubic centimetres (cm3, the same as ml). cc is a sensible central value from the cited sources and ccRange is roughly the spread of individual fossil skulls (or, for living species, typical adult variation). Most fossil species are known from only a handful of skulls, many of them crushed and rebuilt, so every value is approximate and sources differ by up to about 10%. tAgo is years ago and matches the lineage stage when stageId is set, except modern humans, measured on living people (tAgo 0, like the chimpanzee reference). Neanderthals are a side branch (cousins, not ancestors). Sources are in sources.md.",
+  "entries": [
+    { "id": "chimpanzee", "label": "Chimpanzee (living)", "cc": 370, "ccRange": [295, 445], "tAgo": 0, "kind": "reference", "stageId": null, "sourceKey": "S42,S9" },
+    { "id": "sahelanthropus", "label": "Sahelanthropus", "cc": 350, "ccRange": [320, 380], "tAgo": 6.9e6, "kind": "stage", "stageId": "sahelanthropus", "sourceKey": "S10,S1" },
+    { "id": "ardipithecus", "label": "Ardipithecus ramidus", "cc": 325, "ccRange": [300, 350], "tAgo": 4.4e6, "kind": "stage", "stageId": "ardipithecus", "sourceKey": "S11" },
+    { "id": "afarensis", "label": "Australopithecus afarensis (\"Lucy\")", "cc": 445, "ccRange": [365, 526], "tAgo": 3.2e6, "kind": "stage", "stageId": "afarensis", "sourceKey": "S42,S12,S3" },
+    { "id": "habilis", "label": "Homo habilis", "cc": 610, "ccRange": [500, 800], "tAgo": 2.3e6, "kind": "stage", "stageId": "habilis", "sourceKey": "S13" },
+    { "id": "erectus", "label": "Homo erectus", "cc": 970, "ccRange": [546, 1250], "tAgo": 1.9e6, "kind": "stage", "stageId": "erectus", "sourceKey": "S43,S44,S14,S15" },
+    { "id": "heidelbergensis", "label": "Homo heidelbergensis", "cc": 1210, "ccRange": [1125, 1390], "tAgo": 6.0e5, "kind": "stage", "stageId": "heidelbergensis", "sourceKey": "S43,S45,S16" },
+    { "id": "neanderthal", "label": "Neanderthals (side branch)", "cc": 1450, "ccRange": [1200, 1740], "tAgo": 1.0e5, "kind": "side-branch", "stageId": null, "sourceKey": "S17,S46,S47,S7" },
+    { "id": "sapiens", "label": "Modern humans (Homo sapiens)", "cc": 1350, "ccRange": [1000, 2000], "tAgo": 0, "kind": "stage", "stageId": "sapiens", "sourceKey": "S46,S8,S9" }
+  ]
+}

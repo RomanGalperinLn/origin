@@ -1,0 +1,456 @@
+{
+  "_about": "Our own line of descent, from the first cells to Homo sapiens, as 24 key stages (oldest first) for the Chapter 7 morphing creature, plus the living (and two extinct) cousin groups whose lines split from ours between one stage and the next. Every date is approximate. tAgo is years before today and tAgoRange is [younger, older]; for fossil species the range is roughly the span in which that species or grade is known. Each stage is anchored on a real fossil, species or group, but no fossil here is claimed to be a direct ancestor: most are close relatives that show what our ancestors were like at that time, and the smooth morph between stages is illustration, not data. Cousin dates are divergence times from our line, mostly TimeTree 5 molecular-clock medians; these often come out older than the first fossils of a group, so some cousins split before the stage that seems to 'match' them (for example, sponges split before the sponge-like stage, and reptiles before the first known synapsid). scaleCm is a rough typical body length (standing height for upright hominins) and is meant only for on-screen scaling. Sources and disagreements are listed in sources.md.",
+  "stages": [
+    {
+      "id": "first-cells",
+      "label": "First cells",
+      "tAgo": 3.5e9,
+      "tAgoRange": [3.48e9, 3.7e9],
+      "group": "single-celled microbes",
+      "environment": "ocean",
+      "scaleCm": 0.0002,
+      "cousinsBranchingHere": [
+        {
+          "id": "bacteria-archaea",
+          "label": "Bacteria & archaea",
+          "tAgo": 4.2e9,
+          "tAgoRange": [3.5e9, 4.33e9],
+          "extinct": false,
+          "note": "Microbe cousins; all life shares one ancestor, possibly 4.2 billion years ago."
+        }
+      ],
+      "fact": "Microbe-built rock layers about 3.5 billion years old survive in Australia.",
+      "sourceKey": "S20,S19"
+    },
+    {
+      "id": "eukaryote",
+      "label": "Complex cell (with a nucleus)",
+      "tAgo": 1.8e9,
+      "tAgoRange": [1.6e9, 2.0e9],
+      "group": "single-celled eukaryote",
+      "environment": "ocean",
+      "scaleCm": 0.005,
+      "cousinsBranchingHere": [
+        {
+          "id": "plants",
+          "label": "Plants",
+          "tAgo": 1.5e9,
+          "tAgoRange": [1.23e9, 1.68e9],
+          "extinct": false,
+          "note": "Plants: we share a single-celled ancestor, not a many-celled one."
+        },
+        {
+          "id": "fungi",
+          "label": "Fungi",
+          "tAgo": 1.16e9,
+          "tAgoRange": [1.11e9, 1.32e9],
+          "extinct": false,
+          "note": "Fungi, like mushrooms and yeast, are closer kin to us than plants are."
+        }
+      ],
+      "fact": "Cells gain a nucleus; their mitochondria began as engulfed bacteria.",
+      "sourceKey": "S21"
+    },
+    {
+      "id": "multicellular",
+      "label": "First many-celled life",
+      "tAgo": 1.05e9,
+      "tAgoRange": [1.0e9, 1.63e9],
+      "group": "many-celled eukaryote",
+      "environment": "ocean",
+      "scaleCm": 0.1,
+      "cousinsBranchingHere": [
+        {
+          "id": "sponges",
+          "label": "Sponges",
+          "tAgo": 7.5e8,
+          "tAgoRange": [7.0e8, 8.0e8],
+          "extinct": false,
+          "note": "Sponges: one of the oldest animal branches (comb jellies may be older)."
+        },
+        {
+          "id": "cnidarians",
+          "label": "Jellyfish & corals (cnidarians)",
+          "tAgo": 7.0e8,
+          "tAgoRange": [6.3e8, 7.35e8],
+          "extinct": false,
+          "note": "Jellyfish and corals: simple animals with no head or tail end."
+        },
+        {
+          "id": "protostomes",
+          "label": "Insects, snails & octopus (protostomes)",
+          "tAgo": 6.9e8,
+          "tAgoRange": [6.45e8, 7.97e8],
+          "extinct": false,
+          "note": "Insects, snails and octopus: the other great branch of two-sided animals."
+        }
+      ],
+      "fact": "Many-celled life evolved several times; early forms were tiny threads of cells.",
+      "sourceKey": "S22,S21"
+    },
+    {
+      "id": "sponge-like",
+      "label": "Early animal (sponge-like)",
+      "tAgo": 6.0e8,
+      "tAgoRange": [5.4e8, 6.6e8],
+      "group": "early animal",
+      "environment": "ocean",
+      "scaleCm": 0.12,
+      "cousinsBranchingHere": [],
+      "fact": "A possible sponge-like fossil from China, 600 million years old, is pinhead-sized.",
+      "sourceKey": "S23"
+    },
+    {
+      "id": "worm-like",
+      "label": "Worm-like animal with a front and back",
+      "tAgo": 5.55e8,
+      "tAgoRange": [5.5e8, 5.6e8],
+      "group": "early bilaterian",
+      "environment": "ocean",
+      "scaleCm": 0.5,
+      "cousinsBranchingHere": [],
+      "fact": "Ikaria, about the size of a rice grain, had a distinct front and back.",
+      "sourceKey": "S24"
+    },
+    {
+      "id": "jawless-fish",
+      "label": "First fish-like vertebrate (no jaws)",
+      "tAgo": 5.18e8,
+      "tAgoRange": [5.15e8, 5.25e8],
+      "group": "jawless fish",
+      "environment": "ocean",
+      "scaleCm": 2.5,
+      "cousinsBranchingHere": [
+        {
+          "id": "sharks",
+          "label": "Sharks & rays (cartilaginous fish)",
+          "tAgo": 4.63e8,
+          "tAgoRange": [4.47e8, 4.79e8],
+          "extinct": false,
+          "note": "Sharks: jawed cousins whose skeletons are cartilage, not bone."
+        }
+      ],
+      "fact": "Haikouichthys, roughly 2.5 cm long, swam in Cambrian seas without jaws.",
+      "sourceKey": "S25,S18"
+    },
+    {
+      "id": "jawed-fish",
+      "label": "Jawed fish",
+      "tAgo": 4.36e8,
+      "tAgoRange": [4.25e8, 4.39e8],
+      "group": "early jawed fish",
+      "environment": "ocean",
+      "scaleCm": 3,
+      "cousinsBranchingHere": [],
+      "fact": "The oldest complete jawed fish fossils, from China, are about 3 cm long.",
+      "sourceKey": "S26"
+    },
+    {
+      "id": "fishapod",
+      "label": "Fish with limb-like fins (Tiktaalik-like)",
+      "tAgo": 3.75e8,
+      "tAgoRange": null,
+      "group": "lobe-finned fish",
+      "environment": "shore",
+      "scaleCm": 175,
+      "cousinsBranchingHere": [],
+      "fact": "Tiktaalik had a neck and front fins containing wrist-like bones.",
+      "sourceKey": "S27"
+    },
+    {
+      "id": "tetrapod",
+      "label": "First four-legged animal",
+      "tAgo": 3.65e8,
+      "tAgoRange": [3.6e8, 3.72e8],
+      "group": "early tetrapod",
+      "environment": "shore",
+      "scaleCm": 60,
+      "cousinsBranchingHere": [
+        {
+          "id": "amphibians",
+          "label": "Frogs & salamanders (amphibians)",
+          "tAgo": 3.52e8,
+          "tAgoRange": [3.49e8, 3.55e8],
+          "extinct": false,
+          "note": "Frogs and salamanders: four-legged cousins that mostly breed in water."
+        },
+        {
+          "id": "sauropsids",
+          "label": "Reptiles & birds (sauropsids, incl. dinosaurs)",
+          "tAgo": 3.19e8,
+          "tAgoRange": [3.12e8, 3.21e8],
+          "extinct": false,
+          "note": "Reptiles and birds: birds are the surviving dinosaurs."
+        }
+      ],
+      "fact": "Acanthostega had eight digits per hand and still lived mostly in water.",
+      "sourceKey": "S28,S29,S18"
+    },
+    {
+      "id": "synapsid",
+      "label": "Early synapsid (egg laid on land)",
+      "tAgo": 3.1e8,
+      "tAgoRange": [3.0e8, 3.18e8],
+      "group": "synapsid",
+      "environment": "land",
+      "scaleCm": 50,
+      "cousinsBranchingHere": [],
+      "fact": "Synapsids, the mammal line, show up in coal-age forests about 315-306 million years ago.",
+      "sourceKey": "S30"
+    },
+    {
+      "id": "cynodont",
+      "label": "Cynodont (very mammal-like)",
+      "tAgo": 2.5e8,
+      "tAgoRange": [2.45e8, 2.6e8],
+      "group": "cynodont",
+      "environment": "land",
+      "scaleCm": 50,
+      "cousinsBranchingHere": [],
+      "fact": "Fox-sized Thrinaxodon dug burrows and had a half-upright stance.",
+      "sourceKey": "S31"
+    },
+    {
+      "id": "early-mammal",
+      "label": "Early mammal (shrew-like)",
+      "tAgo": 2.05e8,
+      "tAgoRange": [2.0e8, 2.25e8],
+      "group": "early mammal",
+      "environment": "land",
+      "scaleCm": 10,
+      "cousinsBranchingHere": [
+        {
+          "id": "monotremes",
+          "label": "Platypus & echidnas (monotremes)",
+          "tAgo": 1.81e8,
+          "tAgoRange": [1.68e8, 1.94e8],
+          "extinct": false,
+          "note": "Platypus: an egg-laying mammal from the oldest living mammal branch."
+        },
+        {
+          "id": "marsupials",
+          "label": "Kangaroos (marsupials)",
+          "tAgo": 1.59e8,
+          "tAgoRange": [1.52e8, 1.66e8],
+          "extinct": false,
+          "note": "Kangaroos: mammals whose tiny newborns grow up in a pouch."
+        },
+        {
+          "id": "lemurs",
+          "label": "Lemurs (strepsirrhines)",
+          "tAgo": 7.16e7,
+          "tAgoRange": [5.6e7, 7.44e7],
+          "extinct": false,
+          "note": "Lemurs: primate cousins, living wild only on Madagascar today."
+        }
+      ],
+      "fact": "Morganucodon weighed under 100 g and probably hunted insects at night.",
+      "sourceKey": "S32,S18"
+    },
+    {
+      "id": "early-primate",
+      "label": "Early primate (tree-living)",
+      "tAgo": 5.6e7,
+      "tAgoRange": [5.5e7, 6.6e7],
+      "group": "early primate",
+      "environment": "forest",
+      "scaleCm": 8,
+      "cousinsBranchingHere": [],
+      "fact": "Mouse-sized Teilhardina roamed northern forests in a hot spell 56 million years ago.",
+      "sourceKey": "S33"
+    },
+    {
+      "id": "anthropoid",
+      "label": "Early monkey-like primate (anthropoid)",
+      "tAgo": 4.5e7,
+      "tAgoRange": [4.0e7, 4.6e7],
+      "group": "early anthropoid",
+      "environment": "forest",
+      "scaleCm": 10,
+      "cousinsBranchingHere": [
+        {
+          "id": "new-world-monkeys",
+          "label": "New World monkeys",
+          "tAgo": 4.24e7,
+          "tAgoRange": [4.05e7, 4.44e7],
+          "extinct": false,
+          "note": "New World monkeys: their ancestors probably rafted from Africa to South America."
+        }
+      ],
+      "fact": "Tiny Eosimias from China, about 45 million years old, is an early anthropoid.",
+      "sourceKey": "S34,S18"
+    },
+    {
+      "id": "catarrhine-ancestor",
+      "label": "Ancestor of Old World monkeys and apes",
+      "tAgo": 2.9e7,
+      "tAgoRange": [2.8e7, 3.3e7],
+      "group": "early catarrhine",
+      "environment": "forest",
+      "scaleCm": 60,
+      "cousinsBranchingHere": [
+        {
+          "id": "old-world-monkeys",
+          "label": "Old World monkeys",
+          "tAgo": 2.8e7,
+          "tAgoRange": [2.5e7, 3.0e7],
+          "extinct": false,
+          "note": "Old World monkeys, like baboons and macaques: the apes' tailed sister group."
+        }
+      ],
+      "fact": "Saadanius, 29-28 million years old, lived near the monkey-ape split.",
+      "sourceKey": "S35,S18"
+    },
+    {
+      "id": "early-ape",
+      "label": "Early ape (Proconsul-like, no tail)",
+      "tAgo": 2.0e7,
+      "tAgoRange": [1.7e7, 2.3e7],
+      "group": "early ape",
+      "environment": "forest",
+      "scaleCm": 70,
+      "cousinsBranchingHere": [
+        {
+          "id": "gibbons",
+          "label": "Gibbons",
+          "tAgo": 1.96e7,
+          "tAgoRange": [1.87e7, 2.05e7],
+          "extinct": false,
+          "note": "Gibbons: small, acrobatic apes that swing arm over arm."
+        },
+        {
+          "id": "orangutans",
+          "label": "Orangutans",
+          "tAgo": 1.56e7,
+          "tAgoRange": [1.49e7, 1.64e7],
+          "extinct": false,
+          "note": "Orangutans: the only great apes of Asia."
+        },
+        {
+          "id": "gorillas",
+          "label": "Gorillas",
+          "tAgo": 8.7e6,
+          "tAgoRange": [8.25e6, 9.18e6],
+          "extinct": false,
+          "note": "Gorillas: our cousins, not our ancestors."
+        }
+      ],
+      "fact": "Tailless Proconsul climbed through dense tropical forest in Kenya.",
+      "sourceKey": "S36,S18"
+    },
+    {
+      "id": "chimp-lca",
+      "label": "Last common ancestor with chimpanzees",
+      "tAgo": 7.0e6,
+      "tAgoRange": [6.0e6, 8.0e6],
+      "group": "African ape",
+      "environment": "forest",
+      "scaleCm": 100,
+      "cousinsBranchingHere": [
+        {
+          "id": "chimpanzees-bonobos",
+          "label": "Chimpanzees & bonobos",
+          "tAgo": 7.0e6,
+          "tAgoRange": [6.0e6, 8.0e6],
+          "extinct": false,
+          "note": "Chimps and bonobos: our closest living relatives."
+        }
+      ],
+      "fact": "No fossil is known; genes put the split about 7 million years ago.",
+      "sourceKey": "S18,S38,S1"
+    },
+    {
+      "id": "sahelanthropus",
+      "label": "Sahelanthropus",
+      "tAgo": 6.9e6,
+      "tAgoRange": [6.0e6, 7.2e6],
+      "group": "possible early hominin",
+      "environment": "forest",
+      "scaleCm": 105,
+      "cousinsBranchingHere": [],
+      "fact": "The Toumai skull from Chad has a chimp-sized brain; upright walking is debated.",
+      "sourceKey": "S1,S10,S37"
+    },
+    {
+      "id": "ardipithecus",
+      "label": "Ardipithecus ramidus",
+      "tAgo": 4.4e6,
+      "tAgoRange": [4.2e6, 4.5e6],
+      "group": "hominin",
+      "environment": "forest",
+      "scaleCm": 120,
+      "cousinsBranchingHere": [],
+      "fact": "Ardi stood about 1.2 m tall and kept a grasping big toe.",
+      "sourceKey": "S2,S11"
+    },
+    {
+      "id": "afarensis",
+      "label": "Australopithecus afarensis (\"Lucy\")",
+      "tAgo": 3.2e6,
+      "tAgoRange": [2.95e6, 3.85e6],
+      "group": "hominin",
+      "environment": "savanna",
+      "scaleCm": 110,
+      "cousinsBranchingHere": [],
+      "fact": "Lucy walked upright 3.2 million years ago with an ape-sized brain.",
+      "sourceKey": "S3,S12"
+    },
+    {
+      "id": "habilis",
+      "label": "Homo habilis",
+      "tAgo": 2.3e6,
+      "tAgoRange": [1.44e6, 2.4e6],
+      "group": "hominin (early Homo)",
+      "environment": "savanna",
+      "scaleCm": 115,
+      "cousinsBranchingHere": [],
+      "fact": "Its name means 'handy man'; its braincase was a bit bigger than australopiths'.",
+      "sourceKey": "S4,S13"
+    },
+    {
+      "id": "erectus",
+      "label": "Homo erectus",
+      "tAgo": 1.9e6,
+      "tAgoRange": [1.1e5, 2.04e6],
+      "group": "hominin (Homo)",
+      "environment": "savanna",
+      "scaleCm": 165,
+      "cousinsBranchingHere": [],
+      "fact": "Had body proportions like ours and spread from Africa into Asia.",
+      "sourceKey": "S5,S40"
+    },
+    {
+      "id": "heidelbergensis",
+      "label": "Homo heidelbergensis",
+      "tAgo": 6.0e5,
+      "tAgoRange": [2.0e5, 7.0e5],
+      "group": "hominin (Homo)",
+      "environment": "savanna",
+      "scaleCm": 166,
+      "cousinsBranchingHere": [
+        {
+          "id": "neanderthals-denisovans",
+          "label": "Neanderthals & Denisovans",
+          "tAgo": 5.7e5,
+          "tAgoRange": [3.5e5, 8.0e5],
+          "extinct": true,
+          "note": "Extinct human cousins; many living people still carry some of their DNA."
+        }
+      ],
+      "fact": "Tall, with a bigger braincase; made wooden spears to hunt large animals.",
+      "sourceKey": "S6,S16,S39"
+    },
+    {
+      "id": "sapiens",
+      "label": "Homo sapiens",
+      "tAgo": 300000,
+      "tAgoRange": [2.8e5, 3.5e5],
+      "group": "hominin (our species)",
+      "environment": "savanna",
+      "scaleCm": 165,
+      "cousinsBranchingHere": [],
+      "fact": "Our species' oldest known fossils, from Morocco, are about 300,000 years old.",
+      "sourceKey": "S8,S41"
+    }
+  ]
+}

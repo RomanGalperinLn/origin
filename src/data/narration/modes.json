@@ -1,0 +1,37 @@
+{
+  "_about": "One line per chapter for each switch position, in our own words, shown (and played, once generated) when a chapter starts or the switch is flipped. Chapter 7 in RELEASED mode has its own milestone narration (evolution.json), so it has no line here. The rule: never claim randomness alone creates anything; structure needs randomness plus a flow of energy.",
+  "opening": { "released": "Now we let go." },
+  "chapters": {
+    "hot": {
+      "controlled": "A perfectly even beginning: no ripples at all. The first light is one smooth glow.",
+      "released": "The first light carries tiny random ripples: the seeds of everything that follows."
+    },
+    "web": {
+      "controlled": "A perfectly even universe. Gravity pulls the same way everywhere, so nothing gathers. No stars.",
+      "released": "Tiny random ripples. Gravity finds them, deepens them, and the first stars ignite."
+    },
+    "galaxy": {
+      "controlled": "With nothing clumped, there is nothing to become a galaxy. Just an even haze.",
+      "released": "Stars and gas settle into a spinning disk: our galaxy takes shape."
+    },
+    "solar": {
+      "controlled": "No stars, so no Sun and no planets.",
+      "released": "Around the young Sun, rocks collide and stick together until a few planets remain."
+    },
+    "earth": {
+      "controlled": "No Solar System, so no Earth.",
+      "released": "The young Earth cools, and oceans form under an orange sky."
+    },
+    "life": {
+      "controlled": "Everything in its place, no randomness. Energy flows in, but nothing new can form.",
+      "released": "Let the particles wander and keep the energy flowing, and structures build themselves."
+    },
+    "evolution": {
+      "controlled": "Every creature identical, no mutations. Generation after generation, nothing changes."
+    },
+    "humans": {
+      "controlled": "No humans in a controlled universe.",
+      "released": "And here we are: one species, spreading across the planet."
+    }
+  }
+}
